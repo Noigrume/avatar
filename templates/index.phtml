@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Pixel SVG Avatar!</title>
+    <script src="js/app.js" type="module" async defer></script>
+</head>
+<body>
+    <main>
+        <section id="avatar-container">
+            <?=$svg;?>
+        </section>
+        <form id="generate-avatar-form" action="index.php" method="post">
+            <div>
+                <label for="size-input">Taille</label>
+                <input id="size-input" type="range" min="3" max="7" value="<?=$_POST['size']??DEFAULT_SIZE_VALUE?>" step="1" name="size">
+                <output id="size-ouput"></output>
+            </div>
+
+            <div>
+                <label for="colors-input">Couleurs</label>
+                <input id="colors-input" type="range" min="2" max="5" value="<?=$_POST['colors']??DEFAULT_COLORS_VALUE?>" step="1" name="colors">
+                <output id="colors-output"></output>
+            </div>
+
+            <input type="hidden" name="action" value="generate">
+            <input type="submit" value="Générer">
+        </form>
+
+        <form id="save-avatar-form" action="index.php" method="post">
+            <input type="hidden" name="svg" value="<?=htmlspecialchars($svg)?>">
+            <input type="hidden" name="action" value="save">
+            <input type="submit" value="Enregistrer">
+        </form>
+
+        <form id="download-avatar-form" action="index.php" method="post">
+            <input type="hidden" name="svg" value="<?=htmlspecialchars($svg)?>">
+            <input type="hidden" name="action" value="download">
+            <input type="submit" value="Télécharger">
+        </form>
+    </main>
+</body>
+</html>
