@@ -4,7 +4,7 @@
 
 html, body, main {
     height: 100%;
-    margin:0;
+    margin: 0;
     padding: 0;
 }
 
@@ -14,7 +14,18 @@ main {
     align-items: center;
 }
 
-#avatar-container {
-    width: 250px;
-    height: 250px;
+input[type="submit"] {
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    border: none;
+    border: 1px black solid;
+}
+
+input[type="submit"]:hover {
+  
+    background-color: rgb(216, 216, 216);
+   
+    transition: all 1s;
+   
 }
